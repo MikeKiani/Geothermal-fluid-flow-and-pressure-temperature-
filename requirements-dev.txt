@@ -1,0 +1,4 @@
+-r requirements.txt
+jupyter
+ipykernel
+pytest>=7.0

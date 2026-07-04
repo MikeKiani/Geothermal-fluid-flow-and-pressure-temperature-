@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geothermal-welltest"
+version = "1.0.0"
+description = "Geothermal completion-test analysis: temperature, fluid velocity, and feed-zone interpretation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Project contributors" }]
+keywords = ["geothermal", "well test", "PTS", "spinner", "feed zone", "temperature log"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "numpy>=1.21",
+    "pandas>=1.3",
+    "scipy>=1.7",
+    "matplotlib>=3.4",
+]
+
+[project.optional-dependencies]
+notebook = ["jupyter", "ipykernel"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+welltest-analyze = "geothermal_welltest.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
